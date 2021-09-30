@@ -1,4 +1,5 @@
 import Home from "./pages/Home";
+import Globalstyles from "./components/Globalstyles";
 
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 
   return (
     <div>
-
+       <Globalstyles/>
        <Home/>
     </div>
   );
