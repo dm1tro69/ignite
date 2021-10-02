@@ -10,6 +10,7 @@ import styled from "styled-components";
 import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
+import {fadeIn} from "../animations";
 
 
 
@@ -27,7 +28,7 @@ const Home = () => {
     const {popular, newGames, upcoming} = useSelector((state => state.games))
 
     return (
-        <GameList>
+        <GameList >
             <AnimateSharedLayout type={"crossfade"}>
             <AnimatePresence>
             {pathId && <GameDetail pathId={pathId}/>}
