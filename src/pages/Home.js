@@ -4,8 +4,10 @@ import {loadGames} from "../actions/gamesActions";
 
 import {useLocation} from 'react-router-dom'
 
+
+
 import styled from "styled-components";
-import {motion} from "framer-motion";
+import {motion, AnimatePresence, AnimateSharedLayout} from "framer-motion";
 import Game from "../components/Game";
 import GameDetail from "../components/GameDetail";
 
@@ -26,7 +28,10 @@ const Home = () => {
 
     return (
         <GameList>
-            {pathId && <GameDetail/>}
+            <AnimateSharedLayout type={"crossfade"}>
+            <AnimatePresence>
+            {pathId && <GameDetail pathId={pathId}/>}
+            </AnimatePresence>
             <h2>Upcoming Games</h2>
             <Games>
                 {upcoming.map((game)=> (
@@ -45,6 +50,7 @@ const Home = () => {
                     <Game key={game.id} name={game.name} released={game.released} id={game.id} image={game.background_image}/>
                 ))}
             </Games>
+            </AnimateSharedLayout>
         </GameList>
     );
 };
